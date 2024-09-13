@@ -24,6 +24,22 @@ namespace RaikageAhmed1
                 {
                     return OldGeneration.BabyBoomer;
                 }
+                else if ((BirthYear >= 1965) && (BirthYear <= 1980))
+                {
+                    return OldGeneration.GenX;
+                }
+                else if ((BirthYear >= 1981) && (BirthYear <= 1996))
+                {
+                    return OldGeneration.Millenial;
+                }
+                else if ((BirthYear >= 1997) && (BirthYear <= 2012))
+                {
+                    return OldGeneration.GenZ;
+                }
+                else if ((BirthYear >= 2013) && (BirthYear <= 2024))
+                {
+                    return OldGeneration.GenAlpha;
+                }
                 else
                 {
                     return OldGeneration.GenBeta;
@@ -32,9 +48,22 @@ namespace RaikageAhmed1
         }
 
         // - After
+        // C# 9
+        // '=>' expression body member tag syntax
+
+        /*
+         * Using a switch statement
+         * which means here is a value to test, in this case 'BirthYear'
+         * dictates the next thing
+         */
         public Generation Generation => BirthYear switch
         {
-            (2000) => Generation.GenZ,
+            // BabyBoomer, GenX, Millenial, GenZ, GenAlpha, GenBeta 
+            (>= 1946) and (<= 1964) => Generation.BabyBoomer,
+            (>= 1965) and (<= 1980) => Generation.GenX,
+            (>= 1981) and (<= 1996) => Generation.Millenial,
+            (>= 1997) and (<= 2012) => Generation.GenZ,
+            (>= 2013) and (<= 2024) => Generation.GenAlpha,
             _ => Generation.GenBeta
         };
     }
