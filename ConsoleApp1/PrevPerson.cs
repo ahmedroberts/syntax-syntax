@@ -61,9 +61,11 @@ namespace RaikageAhmed1
             // BabyBoomer, GenX, Millenial, GenZ, GenAlpha, GenBeta 
             (>= 1946) and (<= 1964) => Generation.BabyBoomer,
             (>= 1965) and (<= 1980) => Generation.GenX,
-            (>= 1981) and (<= 1996) => Generation.Millenial,
+            // using conjunctive 'and'
+            (>= 1981) and (<= 1996) => Generation.Millenial, 
             (>= 1997) and (<= 2012) => Generation.GenZ,
             (>= 2013) and (<= 2024) => Generation.GenAlpha,
+            // using discard operator intro => C# 7
             _ => Generation.GenBeta
         };
     }
